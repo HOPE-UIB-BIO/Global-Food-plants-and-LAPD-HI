@@ -16,6 +16,7 @@ library(ggplot2)
 
 human_indices <- readxl::read_excel("data/human_impact_indices_coordinates.xlsx")
 
+## ref-ID refers to reference in Overview file of human indices based on combined pollen types in Flantua & Hooghiemstra (in review)
 # Convert ref-ID to numeric 
 human_indices$`ref-ID` <- as.numeric(human_indices$`ref-ID`)
 
@@ -39,28 +40,28 @@ base_map <- ggplot() +
   theme_void()
 
 # Add points for lakes with ref-ID values by color legend
-lake_map1 <- base_map +
+map_indices1 <- base_map +
   geom_point(data = human_indices, aes(x = Longitude, y = Latitude, color = `ref-ID`),
              size = 3) +
-  labs(title = "Lakes in Latin America with ref-ID Values") +
-  scale_color_continuous(name = "ref-ID")  # Add color scale legend
+  labs(title = "Records in Latin America with human indices") +
+  scale_color_continuous(name = "ref-ID")
 
 # Display the map
-print(lake_map1)
+print(map_indices1)
 
 # -------------------------------
 
-# Add points for lakes with ref-ID values
-lake_map2 <- base_map +
+# Add points for lakes with ref-ID values 
+map_indices2 <- base_map +
   geom_point(data = human_indices, aes(x = Longitude, y = Latitude),
              size = 3) +
   geom_text(data = human_indices, aes(x = Longitude, y = Latitude, label = `ref-ID`),
             color = "black", vjust = -0.5, size = 3) +  # vjust to adjust text position
-  labs(title = "Lakes in Latin America with ref-ID Values")  +
+  labs(title = "Records in Latin America with human indices")  +
   scale_color_continuous(name = "ref-ID")  # Add color scale legend
 
 # Display the map
-print(lake_map2)
+print(map_indices2)
 
 # -------------------------------
 
@@ -84,19 +85,19 @@ base_map <- ggplot() +
 
 
 # Add blue colored points and avoid overlap
-lake_map3 <- base_map +
+map_indices3 <- base_map +
   geom_point(data = human_indices, aes(x = Longitude, y = Latitude),
              size = 3, color = "lightblue") +
   geom_text(data = human_indices, aes(x = Longitude, y = Latitude, label = `ref-ID`),
             color = "black", vjust = -0.5, size = 3, check_overlap = TRUE) +
-  labs(title = "Lakes in Latin America with ref-ID Values")
+  labs(title = "Records in Latin America with human indices")
 
 # Display the map
-print(lake_map3)
+print(map_indices3)
 
 
 # point to all numbers with a line 
-lake_map4 <- base_map +
+map_indices4 <- base_map +
   geom_segment(data = human_indices, aes(x = Longitude, y = Latitude + 1,
                                          xend = Longitude, yend = Latitude - 3),
                color = "darkblue", size = 0.5) +
@@ -110,6 +111,6 @@ lake_map4 <- base_map +
         plot.background = element_rect(fill = "white"))
 
 # Display the map
-print(lake_map4)
+print(map_indices4)
 
-ggsave("plots/lake_map.pdf", plot = lake_map4, width = 10, height = 7)
+ggsave("plots/map_indices_final.pdf", plot = map_indices4, width = 10, height = 7)
