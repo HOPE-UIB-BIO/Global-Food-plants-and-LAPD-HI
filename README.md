@@ -12,7 +12,7 @@ Figure 3. Number of times each human indicator was identified in references in L
 Figure 4. Locations of the references with human indices.
 
 Reference:
-S.G.A.Flantua & Henry Hooghiemstra (2023). Anthropogenic pollen indicators: global food plants and Latin American human indicators in the pollen record. Nature - Scientific data.
+Suzette G.A.Flantua & Henry Hooghiemstra (2023). Anthropogenic pollen indicators: global food plants and Latin American human indicators in the pollen record. Nature - Scientific data.
 
 
 
