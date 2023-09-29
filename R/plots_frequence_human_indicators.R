@@ -43,21 +43,23 @@ frequency_plot <- ggplot(data, aes(x = human_indicator, y = number_refs)) +
 # Order human indicators from high to low based on number_refs
 data$human_indicator <- reorder(data$human_indicator, -data$number_refs)
 
-# Create the plot
+# Create the plot of the number of time a human indicator was found
 human_bar_plot <- ggplot(data, aes(x = human_indicator, y = number_refs)) +
   geom_bar(stat = "identity", fill = "blue") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 3.5)) +
-  labs(title = "Number of times each human indicator was identified",
-       x = "Human Indicator",
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8), 
+  axis.title.x = element_text(size = 18), 
+  axis.title.y = element_text(size = 18)) +
+  labs(x = "Human Indicator",
        y = "Number of References")
 
-# Save the plot as a .png file in the "plots" folder
-ggsave(filename = "plots/human_indicators_bar_plot.png", plot = human_plot, width = 8.75, height = 3.15)
+# Save the plot as a .jpg file in the "plots" folder
+ggsave(filename = "plots/human_indicators_bar_plot.jpg", plot = human_bar_plot, width = 25, height = 9, dpi = 300)
+ggsave(filename = "plots/human_indicators_bar_plot.pdf", plot = human_bar_plot, width = 25, height = 9, dpi = 300)
 
 
 ### PLOT 3 FACETS ###
 
-# Create the plot
+# Create the plot of the frequency of human indicators in fossil pollen records
 human_bar_facets <- ggplot(data, aes(x = perc, y = human_indicator)) +
   geom_bar(stat = "identity", fill = "steelblue") +
   facet_wrap(~ perc, scales = "free_y", nrow = 2) +
@@ -69,10 +71,10 @@ human_bar_facets <- ggplot(data, aes(x = perc, y = human_indicator)) +
         strip.text = element_text(size = 8))
 
 # Save the plot as a PNG file
-ggsave(filename = "plots/human_indicators_facets_plot.png", plot = human_bar_facets, width = 10, height = 7)
+ggsave(filename = "plots/human_indicators_facets_plot.png", plot = human_bar_facets, width = 20, height = 14, dpi = 300)
 
 # Save the plot as a pdf file
-ggsave(filename = "plots/human_indicators_facets_plot.pdf", plot = human_bar_facets, width = 10, height = 7)
+ggsave(filename = "plots/human_indicators_facets_plot.pdf", plot = human_bar_facets, width = 20, height = 14, dpi = 300)
 
 
 ### PLOT 4 FACETS GROUPS ###
