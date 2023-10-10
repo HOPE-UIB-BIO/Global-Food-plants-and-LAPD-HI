@@ -2,7 +2,7 @@
 Welcome to the repository for our research project on pollen-based evidence of food plants around the world and human presence in fossil records in Latin America. This project focuses on the identification and analysis of anthopogenic pollen indicators (i.e. human indicators) in pollen data, aiming to reconstruct aspects of human history.
 
 ## Project Structure
-The data folder contains the dataset used for the creating of the different figures of the publication (Flantua & Hooghiemstra, in review).
+The data folder contains the dataset used for the creating of the different figures of the publication (Flantua & Hooghiemstra, 2023).
 The R folder holds R scripts for visualization using ggplot2.
 The plots folder contains generated visualizations.
 
